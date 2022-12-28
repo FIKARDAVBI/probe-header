@@ -11,7 +11,7 @@
 #include "stm32f407xx.h"
 
 void rtcbackup();
-void Settime();
+void Settime(uint8_t jam_, uint8_t menit_, uint8_t detik_);
 void CX();
 void ST();
 void SIM();
@@ -22,13 +22,15 @@ void CAL();
 void kirimdata();
 void wakturtc(uint8_t timebuff, char datat[]);
 void ambildata();
+void init();
+void clearstring(char data__[],uint8_t ukuran);
 
 typedef struct {
 	char telemetri1[36];
 	char telemetri2[30];
 	char telemetri3[50];
-	char telemetri4[30];
-	char telemetritotal[140];
+	char telemetri4[50];
+	char telemetritotal[150];
 
 	char jam[2];
 	char menit[2];
@@ -62,7 +64,7 @@ typedef struct {
 	float tilt_x;
 	float tilt_y;
 
-	char echocmd[10];
+	char echocmd[15];
 } datatelemetri_t;
 
 #endif /* INC_TASK_H_ */
